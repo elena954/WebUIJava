@@ -1,5 +1,6 @@
 package HomeWork6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,7 @@ public class PasswordBlockYandex extends BaseViewYandex{
     @FindBy(id = passwordInputLocatorById)
     private WebElement passwordInput;
 
+    @Step("Заполнить пароль")
     public PasswordBlockYandex fillPasswordInput(String password){
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id(passwordInputLocatorById)));
         passwordInput.sendKeys(password);
@@ -25,6 +27,7 @@ public class PasswordBlockYandex extends BaseViewYandex{
     @FindBy(id = "passp:sign-in")
     private WebElement sumbitPasswordButton;
 
+    @Step("Нажать кнопку войти")
     public MainPageYandex submitPassword(){
         sumbitPasswordButton.click();
         return new MainPageYandex(driver);
